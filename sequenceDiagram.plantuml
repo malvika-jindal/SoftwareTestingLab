@@ -1,0 +1,103 @@
+@startuml Recommendation Sequence UML Diagram
+actor User #blue
+
+'1 ****************************************************'
+User -> "Client Application": authentication details
+activate "Client Application" 
+
+"Client Application" -> "Web Server": Verify authentication details
+activate "Web Server"
+
+"Web Server" -> Database: reterive(User)
+activate Database
+Database --> "Web Server": Send User Details
+deactivate Database
+
+alt#Gold #LightBlue Login Successful
+    "Web Server" -> "Client Application": Home Page(http response)
+else #Pink Failure
+    "Web Server" -> "Client Application": Login Page(http response)
+end
+
+deactivate "Web Server"
+deactivate "Client Application"
+'2 ****************************************************'
+
+User -> "Client Application": Get Recommendation
+activate "Client Application" 
+
+"Client Application" -> "Web Server": Recommendation Query
+activate "Web Server"
+
+"Web Server" -> Database: reterive relevant data
+activate Database
+Database --> "Web Server": Send relevant data
+deactivate Database
+"Web Server" --> "Client Application": Recommendation Page
+deactivate "Web Server"
+
+deactivate "Client Application"
+
+'3 ****************************************************'
+
+User -> "Client Application": CRUD tasks
+activate "Client Application" 
+
+"Client Application" -> "Web Server": Tasks Query
+activate "Web Server"
+
+"Web Server" -> Database: reterive?Update relevant data
+activate Database
+Database --> "Web Server": Send relevant data/Acknowledgement 
+deactivate Database
+"Web Server" --> "Client Application": Task List
+deactivate "Web Server"
+deactivate "Client Application"
+'4 ****************************************************'
+
+User -> "Client Application": Create/Join group
+activate "Client Application" 
+
+"Client Application" -> "Web Server": Data for create/Join group
+activate "Web Server"
+
+"Web Server" -> Database: reterive relevant data
+activate Database
+Database --> "Web Server": Send relevant data
+deactivate Database
+"Web Server" --> "Client Application": Chatting Page
+
+User -> "Client Application": Message
+deactivate "Web Server"
+
+"Client Application" -> "Web Server": Message Data
+activate "Web Server"
+
+"Web Server" -> Database: Save Message
+activate Database
+Database --> "Web Server": Acknowledgement
+deactivate Database
+"Web Server" --> "Client Application": Chatting Page
+deactivate "Web Server"
+
+deactivate "Client Application"
+'5 ****************************************************'
+
+User -> "Client Application": CRUD events
+activate "Client Application" 
+
+"Client Application" -> "Web Server": Events Query
+activate "Web Server"
+
+"Web Server" -> Database: reterive/Update relevant data
+activate Database
+Database --> "Web Server": Send relevant data/Acknowledgement
+deactivate Database
+"Web Server" --> "Client Application": Event List
+deactivate "Web Server"
+
+deactivate "Client Application"
+'****************************************************'
+
+deactivate "Client Application"
+@enduml
