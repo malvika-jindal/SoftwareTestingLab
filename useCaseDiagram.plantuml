@@ -1,0 +1,31 @@
+@startuml Recommendation Use Case UML Diagram
+left to right direction
+skinparam packageStyle rectangle
+actor User as u
+actor System as s
+
+package Application {
+  usecase "Login" as Login
+  usecase "View Recommendation" as VR
+  usecase "Chatting" as C
+  usecase "Verify" as V
+  usecase "ML Models" as ML
+  usecase "Display Error Msg" as DE
+  usecase "Interact with to-do-list module" as TM
+  usecase "Interact with event module" as EM
+  usecase "APIs/Web Crawler" as API
+  (Login) .> (V) : include
+  (ML) .> (VR) : extend
+  (DE) .> (Login) : extend
+  (VR) .> (API) : include
+
+}
+u --> Login
+u --> VR
+u --> C
+u --> TM
+u --> EM
+
+Login -- s 
+VR -- s
+@enduml
