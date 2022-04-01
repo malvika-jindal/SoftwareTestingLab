@@ -61,7 +61,7 @@
         ["xpath=//div[@id='passContainer']/input", "xpath:idRelative"],
         ["xpath=//div[2]/div/input", "xpath:position"]
       ],
-      "value": "!Samsung12"
+      "value": "password"
     }, {
       "id": "b4a25ac1-0678-4d19-8394-99248d0d4cc7",
       "comment": "",
@@ -185,7 +185,7 @@
         ["xpath=//div[@id='passContainer']/input", "xpath:idRelative"],
         ["xpath=//div[2]/div/input", "xpath:position"]
       ],
-      "value": "!Samsung12"
+      "value": "password"
     }, {
       "id": "558c5723-0d4a-4d06-80c6-ec0097be3896",
       "comment": "",
@@ -368,7 +368,7 @@
         ["xpath=//div[@id='passContainer']/input", "xpath:idRelative"],
         ["xpath=//div[2]/div/input", "xpath:position"]
       ],
-      "value": "!Samsung12"
+      "value": "password"
     }, {
       "id": "fad72225-c63a-44ef-a1b2-69a98af3abb0",
       "comment": "",
